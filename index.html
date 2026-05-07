@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Management | PIM</title>
+    <!-- Google Fonts: Kanit -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-grey: #1f2937;    /* เทาเข้มมาก (Charcoal) */
+            --medium-grey: #4b5563;  /* เทากลาง */
+            --light-grey: #f3f4f6;   /* เทาอ่อนมากสำหรับพื้นหลัง */
+            --accent-grey: #9ca3af;  /* เทาเงิน */
+            --white: #ffffff;
+            --pim-blue: #004b8d;     /* สีน้ำเงิน PIM (ใช้เป็นเส้นตัดเล็กน้อย) */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-grey);
+            line-height: 1.6;
+        }
+
+        /* --- Header --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--dark-grey);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--dark-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--medium-grey);
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dark-grey);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(31, 41, 55, 0.8), rgba(31, 41, 55, 0.8)), 
+                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 200;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            color: var(--accent-grey);
+        }
+
+        .btn-main {
+            background-color: var(--white);
+            color: var(--dark-grey);
+            padding: 12px 35px;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: 0.3s;
+            border: 1px solid var(--white);
+        }
+
+        .btn-main:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* --- Content Sections --- */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark-grey);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--pim-blue);
+            margin: 10px auto;
+        }
+
+        /* --- Work-based Section --- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--light-grey);
+            padding: 2.5rem;
+            border-left: 5px solid var(--dark-grey);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: var(--white);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-grey);
+        }
+
+        /* --- Career Section --- */
+        .careers {
+            background-color: var(--dark-grey);
+            color: var(--white);
+        }
+
+        .careers h2 { color: var(--white); }
+
+        .career-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .career-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            padding: 3rem 10%;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 1rem 5%; }
+            section { padding: 4rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">PIM | Logistics</div>
+        <nav>
+            <a href="#about">ทำไมต้อง PIM</a>
+            <a href="#curriculum">หลักสูตร</a>
+            <a href="#career">โอกาสทางอาชีพ</a>
+            <a href="#contact">ติดต่อเรา</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>การจัดการโลจิสติกส์<br>และการคมนาคมขนส่ง</h1>
+        <p>สร้างมืออาชีพด้านการจัดการซัพพลายเชน เรียนรู้จากตัวจริงในอุตสาหกรรม ด้วยรูปแบบการเรียนรู้ Work-based Education</p>
+        <a href="#contact" class="btn-main">สมัครเรียนออนไลน์</a>
+    </section>
+
+    <!-- Why Study Here -->
+    <section id="about">
+        <div class="section-title">
+            <h2>ทำไมต้องเรียนโลจิสติกส์ที่ PIM?</h2>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <h3>เรียนไป ทำงานไป</h3>
+                <p>สัมผัสประสบการณ์จริงผ่านการฝึกปฏิบัติงานในบริษัทชั้นนำทุกปีการศึกษา ทำให้เห็นภาพการทำงานจริงตั้งแต่ยังเรียนไม่จบ</p>
+            </div>
+            <div class="feature-card">
+                <h3>เครือข่ายพันธมิตรระดับโลก</h3>
+                <p>โอกาสฝึกงานและทำงานในบริษัทเครือ CP All และพันธมิตรด้านโลจิสติกส์ทั้งในและต่างประเทศ</p>
+            </div>
+            <div class="feature-card">
+                <h3>หลักสูตรทันสมัย</h3>
+                <p>เน้นการใช้เทคโนโลยีสมัยใหม่ (Digital Logistics), การจัดการคลังสินค้าอัตโนมัติ และการบริหารการขนส่งระดับสากล</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers -->
+    <section id="career" class="careers">
+        <div class="section-title">
+            <h2 style="color: white;">จบไปทำงานอะไรได้บ้าง?</h2>
+        </div>
+        <div class="career-list">
+            <div class="career-tag">ผู้จัดการคลังสินค้า (Warehouse Manager)</div>
+            <div class="career-tag">เจ้าหน้าที่ฝ่ายจัดซื้อ (Procurement Officer)</div>
+            <div class="career-tag">นักวิเคราะห์ซัพพลายเชน (Supply Chain Analyst)</div>
+            <div class="career-tag">เจ้าหน้าที่นำเข้า-ส่งออก (Import-Export Specialist)</div>
+            <div class="career-tag">ผู้ประกอบการธุรกิจขนส่ง (Logistics Entrepreneur)</div>
+            <div class="career-tag">นักวางแผนการผลิต (Production Planner)</div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="text-align: center;">
+        <div class="section-title">
+            <h2>พร้อมเริ่มต้นอนาคตกับเราหรือยัง?</h2>
+        </div>
+        <p style="margin-bottom: 2rem;">เปิดรับสมัครนักศึกษาใหม่แล้ววันนี้ พร้อมทุนการศึกษามากมาย</p>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="#" class="btn-main" style="background: var(--dark-grey); color: white;">ดาวน์โหลดระเบียบการ</a>
+            <a href="#" class="btn-main" style="border: 1px solid var(--dark-grey);">สอบถามเพิ่มเติม</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Facebook</a> | <a href="#">Line Official</a> | <a href="#">Website PIM</a>
+        </div>
+        <p>&copy; 2026 Panyapiwat Institute of Management. All Rights Reserved.</p>
+        <p>สถาบันการจัดการปัญญาภิวัฒน์ 85/1 หมู่ 2 ถ.แจ้งวัฒนะ ต.บางตลาด อ.ปากเกร็ด จ.นนทบุรี 11120</p>
+    </footer>
+
+</body>
+</html>
